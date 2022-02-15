@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/speechstate-lt2216/static/css/main.e164979b.chunk.css",
-    "main.js": "/speechstate-lt2216/static/js/main.02469ac9.chunk.js",
-    "main.js.map": "/speechstate-lt2216/static/js/main.02469ac9.chunk.js.map",
-    "runtime-main.js": "/speechstate-lt2216/static/js/runtime-main.ed139b76.js",
-    "runtime-main.js.map": "/speechstate-lt2216/static/js/runtime-main.ed139b76.js.map",
-    "static/js/2.34252b0d.chunk.js": "/speechstate-lt2216/static/js/2.34252b0d.chunk.js",
-    "static/js/2.34252b0d.chunk.js.map": "/speechstate-lt2216/static/js/2.34252b0d.chunk.js.map",
-    "index.html": "/speechstate-lt2216/index.html",
-    "static/css/main.e164979b.chunk.css.map": "/speechstate-lt2216/static/css/main.e164979b.chunk.css.map",
-    "static/js/2.34252b0d.chunk.js.LICENSE.txt": "/speechstate-lt2216/static/js/2.34252b0d.chunk.js.LICENSE.txt"
+    "main.css": "/AramKarimi/speechstate-lt2216/static/css/main.e164979b.chunk.css",
+    "main.js": "/AramKarimi/speechstate-lt2216/static/js/main.4a7d3ead.chunk.js",
+    "main.js.map": "/AramKarimi/speechstate-lt2216/static/js/main.4a7d3ead.chunk.js.map",
+    "runtime-main.js": "/AramKarimi/speechstate-lt2216/static/js/runtime-main.1dab4504.js",
+    "runtime-main.js.map": "/AramKarimi/speechstate-lt2216/static/js/runtime-main.1dab4504.js.map",
+    "static/js/2.f7174bed.chunk.js": "/AramKarimi/speechstate-lt2216/static/js/2.f7174bed.chunk.js",
+    "static/js/2.f7174bed.chunk.js.map": "/AramKarimi/speechstate-lt2216/static/js/2.f7174bed.chunk.js.map",
+    "index.html": "/AramKarimi/speechstate-lt2216/index.html",
+    "static/css/main.e164979b.chunk.css.map": "/AramKarimi/speechstate-lt2216/static/css/main.e164979b.chunk.css.map",
+    "static/js/2.f7174bed.chunk.js.LICENSE.txt": "/AramKarimi/speechstate-lt2216/static/js/2.f7174bed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ed139b76.js",
-    "static/js/2.34252b0d.chunk.js",
+    "static/js/runtime-main.1dab4504.js",
+    "static/js/2.f7174bed.chunk.js",
     "static/css/main.e164979b.chunk.css",
-    "static/js/main.02469ac9.chunk.js"
+    "static/js/main.4a7d3ead.chunk.js"
   ]
 }
