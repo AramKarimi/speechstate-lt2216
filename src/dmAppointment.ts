@@ -8,8 +8,8 @@ function say(text: string): Action<SDSContext, SDSEvent> {
 const grammar: { [index: string]: { title?: string, day?: string, time?: string } } = {
     "Lecture.": { title: "Dialogue systems lecture" },
     "Lunch.": { title: "Lunch at the canteen" },
-    "on Friday": { day: "Friday" },
-    "at ten": { time: "10:00" },
+    "On Monday.": { day: "Monday" },
+    "At ten": { time: "10:00" },
 }
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
@@ -31,15 +31,16 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
             on: {
                 RECOGNISED: [
                     {
-                        target: 'info',
-                        cond: (context) => "title" in (grammar[context.recResult[0].utterance] || {}),
-                        actions: assign({ title: (context) => grammar[context.recResult[0].utterance].title! })
+                        target: '.info',
+                        cond: (context) => 'title' in (grammar[context.recResult[0].utterance] || {}),
+                        actions: assign({ title: (context) => grammar[context.recResult[0].utterance].title! }),
                     },
                     {
                         target: '.nomatch'
                     }
                 ],
-                TIMEOUT: '.prompt'
+                TIMEOUT: '.prompt',
+                ENDSPEECH: 'date'
             },
             states: {
                 prompt: {
@@ -52,16 +53,55 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                 nomatch: {
                     entry: say("Sorry, I don't know what it is. Tell me something I know."),
                     on: { ENDSPEECH: 'ask' }
+                },
+                info: {
+                    entry: send((context) => ({
+                        type: 'SPEAK',
+                        value: `OK, ${context.title}`
+                    })),
+                }
+            }
+
+        },
+
+
+        date: {
+            initial: 'prompt',
+            on: {
+                RECOGNISED: [
+                    {
+                        target: '.dayinfo',
+                        cond: (context) => 'day' in (grammar[context.recResult[0].utterance] || {}),
+                        actions: assign({ day: (context) => grammar[context.recResult[0].utterance].day! })
+                    },
+                    {
+                        target: '.nomatch'
+                    }
+                ],
+                TIMEOUT: '.prompt'
+            },
+            states: {
+                prompt: {
+                    entry: say("On which day is it?"),
+                    on: { ENDSPEECH: 'ask' }
+                },
+                ask: {
+                    entry: send('LISTEN'),
+                },
+                nomatch: {
+                    entry: say("Sorry, I don't know what it is."),
+                    on: { ENDSPEECH: 'ask' }
+                },
+                dayinfo: {
+                    entry: send((context) => ({
+                        type: 'SPEAK',
+                        value: `OK, ${context.day}`
+                    })),
                 }
             }
         },
-        info: {
-            entry: send((context) => ({
-                type: 'SPEAK',
-                value: `OK, ${context.title}`
-            })),
-            on: { ENDSPEECH: 'init' }
-        }
+
+
     }
 })
 
