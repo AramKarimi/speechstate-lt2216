@@ -559,4 +559,4 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
     }
 })
 
-
+/* Thanks for your submission. Just for clarification, you need to add condition for 'testermenu' too. On the other hand, for success or failure actually there is no state and you see when you want to search about someone you don't have any transition to these states. */ 
